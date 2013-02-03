@@ -51,6 +51,9 @@ try {
     }
     
     // Setup a connection to TMDb
+    if(TMDB_API_KEY === 'TODO_FILL_ME_IN') {
+        throw new Exception('Woah there Susan, did you forget to set your API key?');
+    }
     $tmdb = new TMDb(TMDB_API_KEY);
 
     // Look each movie up in TMDb
