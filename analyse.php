@@ -63,3 +63,21 @@ for($i = 0; $i < 10; $i++) {
     echo key($cast) . " (" . current($cast) . ")\n";
     next($cast);
 }
+
+// Release years
+$years = array();
+$releaseDates = (array)$data->releaseDates;
+foreach($releaseDates as $stamp) {
+    $year = date('Y', $stamp);
+    
+    if(!isset($years[$year])) {
+        $years[$year] = 0;
+    }
+    
+    $years[$year]++;
+}
+ksort($years);
+echo "\nRelease years:\n";
+foreach($years as $year => $count) {
+    echo "{$year}: {$count}\n"; 
+}
